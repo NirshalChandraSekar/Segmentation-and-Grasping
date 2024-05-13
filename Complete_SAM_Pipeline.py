@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 from segment_anything import sam_model_registry, SamPredictor, SamAutomaticMaskGenerator
-import pyrealsense2 as rs
+# import pyrealsense2 as rs
 
 class SAM:
     def __init__(self):
@@ -41,7 +41,7 @@ class SAM:
         points = pc.calculate(depth_frame)
         points_data = np.asarray(points.get_vertices())
         
-    def stream_images_from_pb(self, rgb, depth, k_matrix):
+    def direct_image_input(self, rgb, depth, k_matrix):
         self.color_image = rgb
         self.depth_image = depth
         self.k_matrix = k_matrix
@@ -70,7 +70,7 @@ class SAM:
 
         print("\nSegmenting the objects, this might take a while")
 
-        sam = sam_model_registry["vit_h"](checkpoint=".\SAM\sam_vit_h_4b8939.pth")
+        sam = sam_model_registry["vit_h"](checkpoint="sam/sam_vit_h_4b8939.pth")
         mask_predictor = SamPredictor(sam)
         img2 = cv2.cvtColor(self.color_image, cv2.COLOR_BGR2RGB)
         mask_predictor.set_image(img2)
@@ -100,11 +100,11 @@ class SAM:
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
-    def get_images(self, interface, rgb_from_pb, depth_from_pb):
+    def get_images(self, interface, rgb, depth, k_matrix):
         if interface == "rs":
             self.stream_images_from_rs()
         else:
-            self.stream_images_from_pb(rgb_from_pb, depth_from_pb)
+            self.direct_image_input(rgb, depth, k_matrix)
 
     def main(self, interface, rgb_from_pb=None, depth_from_pb=None, k_matrix=None):
         self.get_images(interface, rgb_from_pb, depth_from_pb, k_matrix)
@@ -113,13 +113,13 @@ class SAM:
         masked_images, masks = self.object_segmentation()
         print("\nVisualize the segmented images")
         for i in range(len(masked_images)):
-            sam.visualize_image(masked_images[i])
+            self.visualize_image(masked_images[i])
         self.depth_image = self.depth_image*0.00025
         seg = np.zeros(self.depth_image.shape)
         for i,mask in enumerate(masks):
             indices = np.where(mask[0]==True)
             seg[indices]=i+1
-        sam.visualize_image(seg)
+        self.visualize_image(seg)
         self.output_for_cgn = {"rgb": self.color_image, "depth": self.depth_image, "K": self.k_matrix, "seg": seg}
         return self.output_for_cgn
 
