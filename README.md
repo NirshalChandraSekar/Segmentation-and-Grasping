@@ -13,7 +13,7 @@ Watch the full video here: https://drive.google.com/file/d/1ks-L4mX4VIew_cKRrXlJ
 ### Usage
 *The pipeline is tested in Python 3.9 version*
 ##### Required Libraries/Tools
-1) Contact GraspNet - Follow the steps in the official repo to clone their code and install all the required packages (https://github.com/elchun/contact_graspnet_pytorch)
+1) Contact GraspNet - Follow the steps in the official repo install all the required packages (https://github.com/elchun/contact_graspnet_pytorch) - plese do not clone their repo, as all the code is already available in this repo, just reference it for the required packages.
 2) Segment Anything Model 
    ```
    pip install git+https://github.com/facebookresearch/segment-anything.git
