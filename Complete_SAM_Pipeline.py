@@ -114,7 +114,8 @@ class SAM:
         print("\nVisualize the segmented images")
         for i in range(len(masked_images)):
             self.visualize_image(masked_images[i])
-        self.depth_image = self.depth_image*0.00025
+        if interface == "rs":
+            self.depth_image = self.depth_image*0.00025 # check the scaling factor for the camera that you are using (for L515 it is 0.00025)
         seg = np.zeros(self.depth_image.shape)
         for i,mask in enumerate(masks):
             indices = np.where(mask[0]==True)
