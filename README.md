@@ -1,5 +1,5 @@
 <p align="center">
-  <h2 align="center">SEGMENTATION AND GRASPING PIPELINE USING CONTACT GRASPNET AND SEGMENT ANYTHING MODEL</h2>
+  <h2 align="center">SEGMENTATION AND GRASPING PIPELINE USING SEGMENT ANYTHING MODEL AND CONTACT GRASPNET</h2>
 </p>
 
 <img src="https://github.com/NirshalChandraSekar/Segmentation-and-Grasping/blob/cc3f69cdf154f75adbff375ed20350e29e39c3fd/image.png">
