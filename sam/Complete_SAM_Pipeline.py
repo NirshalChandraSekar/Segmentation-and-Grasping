@@ -110,10 +110,10 @@ class SAM:
 
     def main(self, interface, rgb_from_pb=None, depth_from_pb=None, k_matrix=None):
         self.get_images(interface, rgb_from_pb, depth_from_pb, k_matrix)
-        print("\nVisualizing the images")
+        print("\nVisualizing the images (press 'q' to continue)")
         self.visualize_image(self.color_image)
         masked_images, masks = self.object_segmentation()
-        print("\nVisualize the segmented images")
+        print("\nVisualize the segmented images (press 'q' to continue)")
         for i in range(len(masked_images)):
             self.visualize_image(masked_images[i])
         if interface == "rs":
