@@ -8,7 +8,7 @@
 The project focuses on creating a pipeline for object segmentation and grasp generation for real-world robots. Utilizing the Contact GraspNet model from Nvidia for grasp generation and the Segment Anything model from Facebook for object segmentation, the pipeline enables users to segment objects in an image and generate grasp poses. It provides various grasp options in the camera coordinate frame for each object along with corresponding grasp scores.
 
 ### Demo
-Watch the full video here: https://drive.google.com/file/d/1uo-crcU8O-MHP1N5hgxUDoyyvciFkpbv/view?usp=sharing
+Watch the full video here: https://drive.google.com/file/d/1ks-L4mX4VIew_cKRrXlJG7AtwPemp42E/view?usp=sharing
 
 ### Usage
 *The pipeline is tested in Python 3.9 version*
