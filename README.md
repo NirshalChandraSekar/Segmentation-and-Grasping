@@ -13,7 +13,7 @@ Watch the full video here: https://drive.google.com/file/d/1ks-L4mX4VIew_cKRrXlJ
 ### Usage
 *The pipeline is tested in Python 3.9 version*
 ##### Required Libraries/Tools
-1) Contact GraspNet - Follow the steps in the official repo install all the required packages (https://github.com/elchun/contact_graspnet_pytorch) - plese do not clone their repo, since all the code is already available in this repo, just reference it for the required packages.
+1) Contact GraspNet - Follow the steps in the official repo install all the required packages (https://github.com/elchun/contact_graspnet_pytorch)
 2) Segment Anything Model 
    ```
    pip install git+https://github.com/facebookresearch/segment-anything.git
@@ -25,7 +25,8 @@ Watch the full video here: https://drive.google.com/file/d/1ks-L4mX4VIew_cKRrXlJ
 
 --> Clone this repo on your local directory, and install all the above mentioned packages. 
 
---> Run the main.py file on your terminal. Input '0' to start your conversation with the robot, and when you want to stop the conversation just say "STOP" out loud, and the simulation will rest and wait for you to input 0 again to continue your next conversation.
+--> Before running the main.py file, make sure you have specified the images and the camera matrix in the main.py file if you are directly passing the images. If you are streaming from an intel realsense camera make sure the camera is connected, and change the depth scale value in the Complete_SAM_Pipeline.py file based on the model of your realsense camera.
+
 
 
 
