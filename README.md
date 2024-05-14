@@ -13,31 +13,19 @@ Watch the full video here: https://drive.google.com/file/d/1ks-L4mX4VIew_cKRrXlJ
 ### Usage
 *The pipeline is tested in Python 3.9 version*
 ##### Required Libraries/Tools
-1) Speech Recognition Module - To recognize the input audio from the user and convert it to text
+1) Contact GraspNet - Follow the steps in the official repo to clone their code and install all the required packages (https://github.com/elchun/contact_graspnet_pytorch)
+2) Segment Anything Model 
    ```
-   pip install SpeechRecognition
+   pip install git+https://github.com/facebookresearch/segment-anything.git
    ```
-2) pyttsx3 Module - To convert the output text into speech to the user
+3) Realsense SDK
    ```
-   pip install pyttsx3
+   pip install pyrealsense2
    ```
-3) PyBullet - Physics simulation package
-   ```
-   pip install pybullet
-   ```
-4) Guidance - For controlling langiage models
-   ```
-   pip install guidance
-   ```
---> Clone this repo on your local directory, and install all the above mentioned packages. 
 
---> Navigate to the "llm.py" file and set your OpenAI API key in line 8.
+--> Clone this repo on your local directory, and install all the above mentioned packages. 
 
 --> Run the main.py file on your terminal. Input '0' to start your conversation with the robot, and when you want to stop the conversation just say "STOP" out loud, and the simulation will rest and wait for you to input 0 again to continue your next conversation.
 
-### Evaluation
-For evaluations, we enabled the LLM to track and store the user's sentiment on a scale of 0 to 10 for each prompt, with 0 being extremely negative and 10 being extremely positive. When the user stops the conversation, we return this tracked sentiments ovre the conversation as a list and plot them to see how the user's sentiment is being changed over the period of the conversation. The goal is to try and flip the sentiment from a negative state to a positve state if the user is initially in a negative mood, and if the person is initially in a positive mood, then the llm should try and maintain this positivity of the user during the conversation.
 
-Sample plots of sentiment over different conversations:
-<img src="https://github.com/NirshalNiru/Human-Robot-Interaction-using-LLM/blob/b8673fd4ec24afbbebf980239f22380117c6f870/plots.png">
 
