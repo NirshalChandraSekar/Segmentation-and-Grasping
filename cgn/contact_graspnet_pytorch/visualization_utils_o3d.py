@@ -120,7 +120,7 @@ def show_image(rgb, segmap):
         if i == 1000:
             raise Exception('Could not save debug image')
 
-    plt.savefig(os.path.join(debug_path, f'debug_img_rgb{i}.png'))
+    # plt.savefig(os.path.join(debug_path, f'debug_img_rgb{i}.png'))
 
     # Below is added by Mohit, not closing and causing issues
     # plt.draw()
